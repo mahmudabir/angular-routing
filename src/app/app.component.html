@@ -5,13 +5,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" [class.active]="matchRoute('/home')" [routerLink]="['/home']">Home</a>
-      <a class="nav-item nav-link" [class.active]="matchRoute('/about')" [routerLink]="['/about']">About Us</a>
-      <a class="nav-item nav-link" [class.active]="matchRoute('/contact')" [routerLink]="['/contact']">Contact Us</a>
-      <a class="nav-item nav-link">|</a>
-      <a class="nav-item nav-link" [class.active]="matchRoute('/products')" [routerLink]="['/products']">Products</a>
-      <a class="nav-item nav-link" [class.active]="matchRoute('/login')" [routerLink]="['/login']">Login</a>
-      <a class="nav-item nav-link" [class.active]="matchRoute('/protected')" [routerLink]="['/protected']">Protected</a>
+      <a class="nav-item nav-link" [class.active]="matchRoute('/home')" [class.disabled]="matchRoute('/home')" [routerLink]="['/home']">Home</a>
+      <a class="nav-item nav-link" [class.active]="matchRoute('/about')" [class.disabled]="matchRoute('/about')" [routerLink]="['/about']">About Us</a>
+      <a class="nav-item nav-link" [class.active]="matchRoute('/contact')" [class.disabled]="matchRoute('/contact')" [routerLink]="['/contact']">Contact Us</a>
+      <a class="nav-item nav-link disabled">|</a>
+      <a class="nav-item nav-link" [class.active]="matchRoute('/products')" [class.disabled]="matchRoute('/products')" [routerLink]="['/products']">Products</a>
+      <a class="nav-item nav-link" [class.active]="matchRoute('/login')" [class.disabled]="matchRoute('/login')" [routerLink]="['/login']">Login</a>
+      <a class="nav-item nav-link" [class.active]="matchRoute('/protected')" [class.disabled]="matchRoute('/protected')" [routerLink]="['/protected']">Protected</a>
     </div>
   </div>
 </nav>
