@@ -15,7 +15,6 @@ export class AppComponent {
   }
 
   matchRoute(s: string): boolean {
-    console.log();
     this.router.events
       .subscribe(
         (event: NavigationEvent) => {
