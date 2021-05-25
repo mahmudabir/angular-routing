@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -11,8 +11,8 @@ export class ProductsComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {
   }
 
-  goToProduct(id: string): void {
-    this.router.navigate(['./', id], {relativeTo: this.route});
+  goToProduct(id: string, name: string): void {
+    this.router.navigate(['./', id, 'name', name], {relativeTo: this.route});
   }
 
   ngOnInit(): void {
