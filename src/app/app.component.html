@@ -1,17 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" [routerLink]="['/']">Router Sample</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <a class="text-white navbar-toggler" type="button" (click)="toggleNavbar()" style="border: none;" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-chevron-circle-down" id="btnNavbarToggle" style="height: 35px; width: 35px;"></i>
+  </a>
+  
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" [class.active]="matchRoute('/home')" [class.disabled]="matchRoute('/home')" [routerLink]="['/home']">Home</a>
-      <a class="nav-item nav-link" [class.active]="matchRoute('/about')" [class.disabled]="matchRoute('/about')" [routerLink]="['/about']">About Us</a>
-      <a class="nav-item nav-link" [class.active]="matchRoute('/contact')" [class.disabled]="matchRoute('/contact')" [routerLink]="['/contact']">Contact Us</a>
-      <a class="nav-item nav-link disabled">|</a>
-      <a class="nav-item nav-link" [class.active]="matchRoute('/products')" [class.disabled]="matchRoute('/products')" [routerLink]="['/products']">Products</a>
-      <a class="nav-item nav-link" [class.active]="matchRoute('/login')" [class.disabled]="matchRoute('/login')" [routerLink]="['/login']">Login</a>
-      <a class="nav-item nav-link" [class.active]="matchRoute('/protected')" [class.disabled]="matchRoute('/protected')" [routerLink]="['/protected']">Protected</a>
+    <div class="navbar-nav" *ngFor="let item of routerLinks">
+        <a class="nav-item nav-link"  [class.active]="matchRoute(item.link)" [class.disabled]="matchRoute(item.link)" [routerLink]="[item.link]">{{item.text}}</a>
     </div>
   </div>
 </nav>
