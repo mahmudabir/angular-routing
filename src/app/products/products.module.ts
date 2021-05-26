@@ -5,6 +5,7 @@ import {ProductComponent} from './product/product.component';
 import {NgModule} from '@angular/core';
 import {ProductsComponent} from './products.component';
 import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'main', pathMatch: 'full'},
@@ -26,10 +27,12 @@ export const routes: Routes = [
     MainComponent,
     MoreInfoComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        ReactiveFormsModule,
+      FormsModule
+    ],
   providers: [],
   bootstrap: []
 })

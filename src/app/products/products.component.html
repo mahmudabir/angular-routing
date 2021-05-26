@@ -2,11 +2,26 @@
 
 <div class="navLinks">
   <a [routerLink]="['./main']">Main</a> |
-  <a [routerLink]="['./more-info']">More Info</a> |
-  Enter id: <input #id size="6">
-  <button (click)="goToProduct(id.value, 'abir')">Go</button>
+  <a [routerLink]="['./more-info']">More Info</a> |<br><br>
+
+  <form class="form" novalidate #form="ngForm" [formGroup]="myForm" (ngSubmit)="onSubmit(form)">
+
+    <label class="form-group"> Enter id: </label>
+    <input class="form-control" formControlName="id" #id size="6" [class.is-invalid]=" !idForm.valid && idForm.touched">
+
+    <label class="form-group"> Enter name: </label>
+    <input class="form-control form-control" formControlName="name" #name size="6" [class.is-invalid]="!nameForm.valid && nameForm.touched">
+
+    <button type="submit" class="btn btn-success mt-3 form-control" (click)="goToProduct(id.value, name.value)" >
+      Go
+    </button>
+
+    {{idForm.valid}},
+    {{nameForm.valid}}
+  </form>
 </div>
 
-<div class="products-area">
+<br>
+<div class="products-area jumbotron">
   <router-outlet></router-outlet>
 </div>
