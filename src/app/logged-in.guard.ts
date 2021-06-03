@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router';
-import {Observable} from 'rxjs';
-import {AuthService} from './auth.service';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 
 @Injectable()
 export class LoggedInGuard implements CanActivate {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -14,6 +14,10 @@ export class LoggedInGuard implements CanActivate {
 
     const isLoggedIn = this.authService.isLoggedIn();
     console.log('canActivate', isLoggedIn);
+    if (!isLoggedIn) {
+      console.log('User not authenticated');
+      this.router.navigateByUrl('login');
+    }
     return isLoggedIn;
   }
 
