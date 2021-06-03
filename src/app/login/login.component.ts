@@ -18,11 +18,6 @@ export class LoginComponent implements OnInit {
     this.message = '';
     if (!this.authService.login(username, password)) {
       this.message = 'Incorrect credentials.';
-
-      setTimeout(() => {
-        this.message = '';
-      }, 2500);
-
     }
     return false;
   }

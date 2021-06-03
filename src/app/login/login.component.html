@@ -1,26 +1,32 @@
 <p>login works!</p>
 
-<div class="alert alert-danger" role="alert" *ngIf="message">
-  {{ message }}
+<div class="alert alert-danger row " role="alert" *ngIf="message">
+    <div class="col-11 mx-auto">
+        {{ message }}
+    </div>
+
+    <div class="col-1 pl-5">
+        <a (click)="message=''" style="cursor: pointer;"><i class="fa fa-times "></i></a>
+    </div>
 </div>
 
-<form class="form form-check" *ngIf="!authService.getUser()">
-  <div class="form-group">
-    <label for="username">User: (type <span>{{': "user" '}}</span>)</label>
-    <input class="form-control" name="username" #username>
-  </div>
+<form class="form form-check " *ngIf="!authService.getUser() ">
+    <div class="form-group ">
+        <label for="username ">User: (type <span>{{': "user " '}}</span>)</label>
+        <input class="form-control " name="username " #username value="user">
+    </div>
 
-  <div class="form-group">
-    <label for="password">Password: (type <em>{{': "password" '}}</em>)</label>
-    <input class="form-control" type="password" name="password" #password>
-  </div>
+    <div class="form-group ">
+        <label for="password ">Password: (type <em>{{': "password " '}}</em>)</label>
+        <input class="form-control " type="password " name="password " #password value="password">
+    </div>
 
-  <a class="btn btn-success" (click)="login(username.value, password.value)">
+    <a class="btn btn-success " (click)="login(username.value, password.value) ">
     Submit
   </a>
 </form>
 
-<div class="well" *ngIf="authService.getUser()">
-  Logged in as <b>{{ authService.getUser() }}</b>
-  <a href (click)="logout()">Log out</a>
+<div class="well " *ngIf="authService.getUser() ">
+    Logged in as <b>{{ authService.getUser() }}</b>
+    <a href (click)="logout() ">Log out</a>
 </div>
