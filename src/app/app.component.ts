@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavigationEnd, NavigationStart, Router, Event as NavigationEvent} from '@angular/router';
-import {RouterLinkModel, routerLinks, routerLinks as listOfLinks} from './router.link.model';
+import { AuthService } from './auth.service';
+import {RouterLinkModel, routerLinks as listOfLinks} from './router.link.model';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent {
 
   routerLinks?: RouterLinkModel[];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
 
   }
 
@@ -22,7 +23,7 @@ export class AppComponent {
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit(): void {
       this.routerLinks = listOfLinks;
-      console.log(routerLinks);
+      console.log(this.routerLinks);
   }
 
   matchRoute(s: string): boolean {
