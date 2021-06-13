@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {NavigationEnd, NavigationStart, Router, Event as NavigationEvent} from '@angular/router';
+import { Component } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router, Event as NavigationEvent } from '@angular/router';
 import { AuthService } from './auth.service';
-import {RouterLinkModel, routerLinks as listOfLinks} from './router.link.model';
+import { RouterLinkModel, routerLinks as listOfLinks } from './router.link.model';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent {
   navbarToggled = false;
 
   routerLinks?: RouterLinkModel[];
-
+  data?: any;
   constructor(private router: Router, private authService: AuthService) {
 
   }
@@ -22,8 +22,19 @@ export class AppComponent {
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit(): void {
-      this.routerLinks = listOfLinks;
-      console.log(this.routerLinks);
+    this.routerLinks = listOfLinks;
+    console.log(this.routerLinks);
+
+
+    // this.data = document.getElementById('app-root')?.innerHTML;
+    // console.log(this.data?.length);
+    // if (this.data?.length != 0) {
+    //   console.log(`hidden="true"`);
+    //   document.getElementById('loader')?.setAttribute('hidden', 'true');
+    // } else {
+    //   console.log(`hidden="false"`);
+    //   document.getElementById('loader')?.removeAttribute('hidden');
+    // }
   }
 
   matchRoute(s: string): boolean {
