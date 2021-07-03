@@ -13,12 +13,12 @@
 <form class="form form-check " *ngIf="!authService.getUser() ">
     <div class="form-group ">
         <label for="username ">User: (type <span>{{': "abir " '}}</span>)</label>
-        <input class="form-control " name="username " #username value="user">
+        <input class="form-control " name="username " #username value="abir">
     </div>
 
     <div class="form-group ">
         <label for="password ">Password: (type <em>{{': "abir " '}}</em>)</label>
-        <input class="form-control " type="password " name="password " #password value="password">
+        <input class="form-control " type="password " name="password " #password value="abir">
     </div>
 
     <a class="btn btn-success " (click)="login(username.value, password.value) ">
